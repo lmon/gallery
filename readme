@@ -1,0 +1,41 @@
+//README
+
+Home
+	- random image[0], fullscreen[X]
+	- prev, next buttons at bottom [X]
+	- swipe left right
+	- menu icon top left [X]
+
+Menu
+	Other Images by collection 
+	Contact
+	Links
+	Documents
+	
+	
+	Phase 1 
+	Home page 
+		with Pullout Menu(mob) [X]/ Top-aligned (DT) [X]
+			menu items: filtered image lists, about 
+		with image browser
+			swipe (mob) carousel (dt)  	[X]
+			click->expand				[0]
+		with lg bg image     			[X]
+		Bootstrap for Responsive 		[X]
+		Angular 
+			routes 			[0]
+			controller etc  [0]
+			actions 		[0]
+
+	Phase 2
+		Above, plus 
+			JSON Svc
+			Rails BE
+			use JSON for 
+				image data
+				navigation data
+				page content (about)
+				
+	Phase 3
+		Above, plus Node for backend
+		Deployment scripts (minifier etc)
