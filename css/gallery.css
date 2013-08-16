@@ -29,36 +29,37 @@ body{
 
 .carousel.hp{
 	background: #999;
-	Xwidth: 90%;
 	height: 300px;
 	overflow: hidden;
 }
 .carousel-inner {
 	background: #FF0;
-	Xwidth: 90%;
 	height: inherit;
 }
-.carousel-inner>item , .carousel-inner>.active {
+.carousel-inner>item, .carousel-inner>.active {
 	height: inherit;
-	xborder: 1px red solid;
+	/*xborder: 1px red solid;*/
 }
 
 .carousel-inner>.item>img.horizontal{
 	display: block;
-	border: 5px pink solid;
+	/*border: 5px pink solid;*/
 	width: 100%;
+	margin: auto;
+
 } 
 
 .carousel-inner>.item>img.vertical{
 	display: block;
-	border: 2px black solid;
+	/*border: 2px black solid;*/
 	height: 100%;
+	margin: auto;
 } 
 
-
+	/***** image thumbs: ******/
 .carousel-indicators.thumb{
-	background: #FFF;
-	Xopacity: .4;
+	border: 1px #000 solid;
+	/*Xopacity: .4;*/
 	width: 50%; 
 	margin: 0 auto;
 	left: 25%;
@@ -81,6 +82,10 @@ body{
 .carousel-indicators.thumb li.active{
 	border:1px #111 solid;
 }
+
+
+
+
 
 .footer{
 	width:100%;
@@ -127,6 +132,10 @@ move these to FE / JS
 	width 80%;
   }
 
+/***** Carousel stuff ****/
+	.carousel-inner {
+		background: #FF0000;
+	}
 	.carousel-indicators.thumb li{
 		width: 50px;
 		height: 50px;
@@ -134,9 +143,15 @@ move these to FE / JS
 	.container.gallery-carousel{
 		width: 580px;
 	}
+
 	.carousel.hp{
 		height: 500px;
 	}
+	
+	.carousel-inner>.item>img.vertical{
+		margin: auto;
+	} 
+
 
 }
 
@@ -148,16 +163,30 @@ move these to FE / JS
 	-o-background-size: cover;
 	background-size: cover;
   }
-    .hp-image{
-	background: #00FF00;
+    .hp-image{ 
 	height: 100px;
 	width 80%;
   }
+  
+/***** Carousel stuff ****/
+	.carousel-inner {
+		background: #ccccFF;
+	}
 
 	.carousel-indicators.thumb li{
 		width: 70px;
 		height: 70px;
 	}
+	.container.gallery-carousel{
+		width: 580px;
+	}
+	.carousel.hp{
+		height: 660px;
+	}	
+	.carousel-inner>.item>img.vertical{
+		margin: auto;
+	} 
+
 
 }
 
@@ -169,10 +198,22 @@ move these to FE / JS
 	-o-background-size: cover;
 	background-size: cover;
   }
- .hp-image{
-	background: #555;
-	height: 100px;
-	width 80%;
-  }
+/***** Carousel stuff ****/
+	.carousel-inner {
+	}
+
+	.carousel-indicators.thumb li{
+		width: 120px;
+		height: 120px;
+	}
+	.container.gallery-carousel{
+		width: 780px;
+	}
+	.carousel.hp{
+		height: 768px;
+	}
+	.carousel-inner>.item>img.vertical{
+		margin: auto;
+	} 
 
 }

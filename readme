@@ -20,11 +20,14 @@ Menu
 		with image browser
 			swipe (mob) carousel (dt)  	[X]
 			click->expand				[0]
+			lazy load					[0]
+			pagination					[0]
 		with lg bg image     			[X]
 		Bootstrap for Responsive 		[X]
+			main and thumbs resize, then reload on resize of viewport [X]
 		Angular 
 			routes 			[0]
-			controller etc  [0]
+			controller etc  [X]
 			actions 		[0]
 
 	Phase 2

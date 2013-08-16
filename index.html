@@ -8,7 +8,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="css/gallery.css" rel="stylesheet" media="screen">
   </head>
-  <body>
+  <body class="{{window_thresh}}">
     
     <div class="navbar navbar-inverse navbar-fixed-top gallery">
     
@@ -64,7 +64,7 @@ HTML is great for declaring static documents, but it falters when we try to use 
         <div class="carousel-inner">          
           <div class="item {{$index==0 && 'active' || 'notactive'}}" ng-repeat="hpthumb in hpthumbs"><img 
           	src="{{hpthumb.file}}" 
-          	orientable ><span>{{hpthumb.work_name}}</span></div>
+          	orientable /><p>{{hpthumb.work_name}}</p></div>
         
         </div>
         <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
