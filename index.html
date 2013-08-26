@@ -44,13 +44,7 @@
 	<script type="text/javascript">
         var sortingOrder = 'id';
     </script>
- <div ng-controller="ctrlRead">
-    <div class="input-append">
-        <input type="text" ng-model="query" ng-change="search()" 
-		class="input-large search-query" placeholder="Search">
-    	<span class="add-on"><i class="icon-search"></i></span>
-    </div>
-            
+ <div ng-controller="ctrlRead">            
 	<ul>
 	<li class="item " 
 	ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder"> 
@@ -77,13 +71,7 @@
 <!-- start carousel-->
  
 <!-- end carousel-->
-
-	<div class="container">
-	<div class="row">
-
-
-  </div><!-- row -->
-  </div><!-- container -->
+ 
 
 	<div class="container footer">
 	<div class="row">
