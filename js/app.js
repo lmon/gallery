@@ -37,9 +37,10 @@ angular.module('App', ['$strap.directives'])
 		}
 		// based on the above, change the Request URL
 		if($scope.window_thresh ==null){
-		
+			console.log('thresh = '+$scope.window_thresh)
 		}else if($scope.window_thresh != oldthresh){
-	        $scope.imageLoadInit();
+	    	console.log('load init. thresh = '+$scope.window_thresh)
+		    $scope.imageLoadInit();
 		}
 	});
     
@@ -81,13 +82,13 @@ angular.module('App', ['$strap.directives'])
    		$scope.imageLoadInit();
 	};
 
+	
   		
 }).directive('orientable', function () {       
-    return {
+    // allows us to distinguish betwee norientations so we can chg class & css
+	return {
         link: function(scope, element, attrs) {   
-
             element.bind("load" , function(e){ 
-
                 // success, "onload" catched
                 // now we can do specific stuff:
                 if(element[0].naturalHeight > element[0].naturalWidth){
@@ -106,7 +107,23 @@ angular.module('App', ['$strap.directives'])
 jQuery('carousel').carousel('pause');
 
 function ctrlRead($scope, $filter) {
-    // init
+    $scope.selected = {"name":"", "work":""};
+	$scope.setSrcMain = function ($ind) {
+		// get info from clicked item: src, alt
+		// assign sec & alt to #imgtarget
+		$scope.selected = $scope.findObjectByProperty($scope.items, 'id', $ind);
+		console.log("setSrcCalled called: "+$ind);
+	}
+	$scope.findObjectByProperty = function($list, $propname,$propvalue) {	
+		for(var i=0;i<$list.length;i++) {
+		  if($list[i][$propname] == $propvalue ){
+			return $list[i];
+			}  
+	 	}
+	 	return null;
+	}
+	
+	// init
     $scope.sortingOrder = sortingOrder;
     $scope.reverse = false;
     $scope.filteredItems = [];
@@ -114,28 +131,18 @@ function ctrlRead($scope, $filter) {
     $scope.itemsPerPage = 3;
     $scope.pagedItems = [];
     $scope.currentPage = 0;
-    $scope.items = [
-        {"id":"1","name":"anne 1","description":"description 1","field3":"field3 1","field4":"http://www.dining.csus.edu/wp-content/uploads/2012/08/bkLogo.png"}, 
-        {"id":"2","name":"jack 2","description":"description 1","field3":"field3 2","field4":"http://blog.seattlepi.com/thebigblog/files/2011/08/bkkingmascott.png"}, 
-        {"id":"3","name":"mark 3","description":"description 1","field3":"field3 3","field4":"http://www.blogpakistan.com/wp-content/uploads/2013/07/burger-king-1.jpg"}, 
-        {"id":"4","name":"rob 4","description":"description 1","field3":"field3 4","field4":"http://www.midwestern-electric.com/_images//special/bk_sign.jpg"}, 
-        {"id":"5","name":"robin 5","description":"description 1","field3":"field3 5","field4":"http://www.openminds.com/images/BurgerKing-Have-It-Your-Way.gif"}, 
-        {"id":"6","name":"jacynth 6","description":"description 1","field3":"field3 6","field4":"http://assets.bizjournals.com/denver/BurgerKingKingCar*304.jpg?v=1"}, 
-        {"id":"7","name":"lily 7","description":"description 1","field3":"field3 7","field4":"http://www.garyssigns.com/wp-content/uploads/2010/09/Burger-King-I5-pole-sign-combined-300x200.jpg"}, 
-        {"id":"8","name":"nina 8","description":"description 1","field3":"field3 8","field4":"http://cdn5.xombit.com/wp-content/blogs.dir/19/files/2012/06/burger-king-bacon-sundae.jpg"}, 
-        {"id":"9","name":"name 9","description":"nina 1","field3":"field3 9","field4":"field4 9","field5 ":"field5 9"}, 
-        {"id":"10","name":"name 10","description":"description 1","field3":"field3 10","field4":"field4 10","field5 ":"field5 10"}, 
-        {"id":"11","name":"name 11","description":"description 1","field3":"field3 11","field4":"field4 11","field5 ":"field5 11"}, 
-        {"id":"12","name":"name 12","description":"description 1","field3":"field3 12","field4":"field4 12","field5 ":"field5 12"}, 
-        {"id":"13","name":"name 13","description":"description 1","field3":"field3 13","field4":"field4 13","field5 ":"field5 13"}, 
-        {"id":"14","name":"name 14","description":"description 1","field3":"field3 14","field4":"field4 14","field5 ":"field5 14"}, 
-        {"id":"15","name":"name 15","description":"description 1","field3":"field3 15","field4":"field4 15","field5 ":"field5 15"}, 
-        {"id":"16","name":"name 16","description":"description 1","field3":"field3 16","field4":"field4 16","field5 ":"field5 16"}, 
-        {"id":"17","name":"name 17","description":"description 1","field3":"field3 17","field4":"field4 17","field5 ":"field5 17"}, 
-        {"id":"18","name":"name 18","description":"description 1","field3":"field3 18","field4":"field4 18","field5 ":"field5 18"}, 
-        {"id":"19","name":"name 19","description":"description 1","field3":"field3 19","field4":"field4 19","field5 ":"field5 19"}, 
-        {"id":"20","name":"name 20","description":"description 1","field3":"field3 20","field4":"field4 20","field5 ":"field5 20"}
-    ];
+    //tmp data 
+	$scope.items = [
+        {"id":"1","name":"anne ","field4":"http://www.dining.csus.edu/wp-content/uploads/2012/08/bkLogo.png"}, 
+        {"id":"2","name":"jack ", "field4":"http://blog.seattlepi.com/thebigblog/files/2011/08/bkkingmascott.png"}, 
+        {"id":"3","name":"mark ", "field4":"http://www.blogpakistan.com/wp-content/uploads/2013/07/burger-king-1.jpg"}, 
+        {"id":"4","name":"rob ", "field4":"http://www.midwestern-electric.com/_images//special/bk_sign.jpg"}, 
+        {"id":"5","name":"robin ", "field4":"http://www.openminds.com/images/BurgerKing-Have-It-Your-Way.gif"}, 
+        {"id":"6","name":"jacynth ", "field4":"http://assets.bizjournals.com/denver/BurgerKingKingCar*304.jpg?v=1"}, 
+        {"id":"7","name":"lily ", "field4":"http://www.garyssigns.com/wp-content/uploads/2010/09/Burger-King-I5-pole-sign-combined-300x200.jpg"}, 
+        {"id":"8","name":"nina ", "field4":"http://cdn5.xombit.com/wp-content/blogs.dir/19/files/2012/06/burger-king-bacon-sundae.jpg"}, 
+        {"id":"9","name":"fred ", "field4":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/157907_185953438108290_734169016_q.jpg"}, 
+   ];
 
     var searchMatch = function (haystack, needle) {
         if (!needle) {
@@ -143,10 +150,11 @@ function ctrlRead($scope, $filter) {
         }
         return haystack.toLowerCase().indexOf(needle.toLowerCase()) !== -1;
     };
-
+	
     // init the filtered items
     $scope.search = function () {
-        $scope.filteredItems = $filter('filter')($scope.items, function (item) {
+        console.log('in search')
+		$scope.filteredItems = $filter('filter')($scope.items, function (item) {
             for(var attr in item) {
                 if (searchMatch(item[attr], $scope.query))
                     return true;

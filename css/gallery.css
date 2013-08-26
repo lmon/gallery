@@ -5,20 +5,31 @@ move these to FE / JS
 */
 body{
 	background-color:#fff;
-	background: no-repeat center center fixed url('http://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Ash_Tree_-_geograph.org.uk_-_590710.jpg/220px-Ash_Tree_-_geograph.org.uk_-_590710.jpg');
+	/*background: no-repeat center center fixed url('http://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Ash_Tree_-_geograph.org.uk_-_590710.jpg/220px-Ash_Tree_-_geograph.org.uk_-_590710.jpg');
+	*/
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
 }
-
+/* debugging */
+#devnote{
+position:absolute;
+top:0px;
+left:1px;
+background-color:yellow;
+}
+.disabled a, .disabled a:hover{
+	opacity: .3;
+	text-decoration:none;
+}
 .container.page{
 	margin: 5px;
 	padding: 5px;
 }
 
 .navbar.gallery{
-	opacity: .8;
+	opacity: .9;
 }
 
 /* carousel */
@@ -120,7 +131,8 @@ move these to FE / JS
 */
 @media (min-width: 580px) {
   body {
-	background:  no-repeat center center fixed url('http://files.abovetopsecret.com/files/img/rq518f9998.jpg');
+	/*background:  no-repeat center center fixed url('http://files.abovetopsecret.com/files/img/rq518f9998.jpg');
+	*/
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -157,7 +169,8 @@ move these to FE / JS
 
 @media (min-width: 800px) {
   body {
-	background:  no-repeat center center fixed  url('http://www.stcatharines.ca/en/resources/tree.jpg');
+	/*background:  no-repeat center center fixed  url('http://www.stcatharines.ca/en/resources/tree.jpg');
+	*/
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -192,7 +205,8 @@ move these to FE / JS
 
 @media (min-width: 1024px) {
   body {
-	background: no-repeat center center fixed  url('http://erisaeverdeen.files.wordpress.com/2013/05/tree.jpg');
+	/*background: no-repeat center center fixed  url('http://erisaeverdeen.files.wordpress.com/2013/05/tree.jpg');
+	*/
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
