@@ -1,97 +1,6 @@
-//app.js
-angular.module('App', ['$strap.directives', 'App.directives',])
-.controller('AppCtrl', function($scope, $http, $filter) {
-	$scope.config = {
-		//svcUrl: "http://www.lucasmonaco.com/gallery/service/?length=2"
-		svcUrl: "/gallery/service/"
-		//"/victimizer/service/?appid=1&action=getdata" 
-		// 		svcUrl: "/gallery/service/"
-	}
-	$scope.window_thresh = null;
-	$scope.resplength = 8;
-	$scope.hpthumbs = null;
-
-	$scope.getWidth = function() {
-        return $(window).width();
-    };
-    
-    // determine device size, update class of page.
-    // update URL to call and load in new, appropriate images
-   	// bootstrap widths:
-	$scope.$watch($scope.getWidth, function(newValue, oldValue) {
-
-        oldthresh = $scope.window_thresh;
-
-        $scope.window_width = newValue;
-        if($scope.window_width < 580){
-	        $scope.window_thresh = "s";
-
-        }else if($scope.window_width < 800){
-	        $scope.window_thresh = "m";
-
-        }else if($scope.window_width < 1024){
-	        $scope.window_thresh = "l";
-
-		}else{
-		    $scope.window_thresh = "xl";
-		}
-		// based on the above, change the Request URL
-		if($scope.window_thresh == null){
-			console.log('watch: thresh = '+$scope.window_thresh)
-
-		// prevents the reload to be called on load of the page.
-		}else if(($scope.window_thresh != oldthresh) && (oldthresh != null)){
-	    	console.log('watch: load init. thresh = '+$scope.window_thresh + " & oldthresh="+oldthresh);
-	    	oldthresh = 's';
-		    $scope.imageLoadInit();
-		}
-	});
-    
-    // when window changes size re-request the images
-    window.onresize = function(){
-        $scope.$apply();
-    }
-
-
-    // called on page load. 
-    // adds main and thumbs
-    $scope.imageLoadInit = function(){
-		// onload data req
-		// using threshhold for size
-		// using length for number of results
-		$http({method:'GET', url: $scope.config.svcUrl + '?thresh='+$scope.window_thresh + '&length='+$scope.resplength}).
-			success(function(json) {
-				$scope.onSuccess(json);
-				console.log('Success');
-		}).
-		error(function(data, status, headers, config) {
-			console.log('Error');
-			console.log('	data: '+data);
-			console.log('	status: '+status);
-			console.log('	config: '+config);
-		
-			// called asynchronously if an error occurs
-			// or server returns response with an error status.
-		});
-  	}
-  	
-  	$scope.onSuccess = function(json){
- 	 	// implement a filter on html page to avoid loading 169 images at once
- 	 	$scope.hpthumbs = json.data;
- 		console.log("AppCtrl onSuccess: json.data.length "+json.data.length);
- 	}
-	
-	$scope.init = function () {
-   		console.log("AppCtrl init called");
-   		$scope.imageLoadInit();
-	};
-	
-// why do i have to do this:   		
-// [ '$scope', '$filter', function($scope, $filter)  doesnt seem right
-//????
-//ctrlRead.$inject = ['$scope', '$filter'];
-//??	
-}).controller('ctrlRead', [ '$scope', '$filter', function($scope, $filter) {
+//
+angular.module('App.controllers', []).
+  controller('ctrlRead', [ '$scope', '$filter', function($scope, $filter) {
     console.log('in ctrlRead . '+ $scope.hpthumbs);
 
     console.log('in preInit . scope is '+ $scope);
@@ -236,6 +145,4 @@ angular.module('App', ['$strap.directives', 'App.directives',])
         else
             $('th.'+new_sorting_order+' i').removeClass().addClass('icon-chevron-down');
     };
-} ]);
- 
- 
+} );

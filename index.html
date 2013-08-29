@@ -40,16 +40,18 @@
 <div class="container page">
     <h1>yournamehere.com</h1>
 </div>
-
+       
 	<script type="text/javascript">
-        var sortingOrder = 'id';
+        var sortingOrder = 'work_name';
     </script>
- <div ng-controller="ctrlRead">            
+ <div ng-controller="ctrlRead"> 
+
+        <a href ng-click="myOnclick()">CLICK</a>
 	<ul>
 	<li class="item " 
 	ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder"> 
-	 <p><a href ng-click="setSrcMain(item.id)"><img 
-	 src="{{item.field4}}" height="50" width="50" alt="{{item.name}}" /></a></p></li>
+	 <p>{{item.name}}<a href ng-click="setSrcMain(item.id)"><img 
+	 src="{{item.file}}" height="50" width="50" alt="{{item.work_name}}" /></a></p></li>
 	</ul>
 	<div class="pagination">
 		<ul>
@@ -62,7 +64,7 @@
 		</ul>
 	</div>    
 <br />
-<img alt="{{selected.name}}" src="{{selected.field4}}" height="100" width=100" />
+<img alt="{{selected.name}}" src="{{selected.field4}}" height="100" width="100" />
  
  </div><!-- end ctrlRead -->
 
@@ -90,5 +92,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular-resource.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-strap/0.7.2/angular-strap.min.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/directives.js"></script>
   </body>
 </html>

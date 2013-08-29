@@ -15,6 +15,8 @@ $thumburlprefix = "http://www.lucasmonaco.com/show_image.php?perc=50&max=60&img=
 
 if(isset($_GET['thresh'])){
 
+	$size = "perc=50&max=300&img=";
+
 	if( $_GET['thresh'] == 's'){
 
 	$size = "perc=50&max=300&img=";
