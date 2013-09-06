@@ -33,55 +33,47 @@
       </ul>
     </div>
   </div>
-  
     </div><!-- navbar -->
     
  
 <div class="container page">
-    <h1>yournamehere.com</h1>
-</div>
-       
-	<script type="text/javascript">
+  <h1>yournamehere.com</h1>
+  <script type="text/javascript">
         var sortingOrder = 'work_name';
-    </script>
- <div ng-controller="ctrlRead"> 
+  </script>
+  <div ng-controller="ctrlRead"> 
+    <div id="centerStage" ng-class="">
+      <a href="#"><img alt="{{selected.name}}" src="{{selected.file}}" /></a>
+    </div>
+    <div id="hpImgNavigation">
+    <ul class="thumbnails">
+      <li id="prevBtn" 
+      ng-class="{disabled: currentPage == 0}"><a href 
+      ng-click="prevPage()">Prev</a></li>
 
-        <a href ng-click="myOnclick()">CLICK</a>
-	<ul>
-	<li class="item " 
-	ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder"> 
-	 <p>{{item.name}}<a href ng-click="setSrcMain(item.id)"><img 
-	 src="{{item.file}}" height="50" width="50" alt="{{item.work_name}}" /></a></p></li>
-	</ul>
-	<div class="pagination">
-		<ul>
-			<li ng-class="{disabled: currentPage == 0}">
-				<a href ng-click="prevPage()">Prev</a>
-			</li>
-			<li ng-class="{disabled: currentPage == pagedItems.length - 1}">
-				<a href ng-click="nextPage()">Next</a>
-			</li>
-		</ul>
-	</div>    
-<br />
-<img alt="{{selected.name}}" src="{{selected.field4}}" height="100" width="100" />
- 
+      <li class="span4 item" 
+      ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder"><div class="thumbnail">
+        <a href ng-click="setSrcMain(item.work_id)"><img 
+        class="thumbimg"
+        src="{{item.file}}" 
+        alt="{{item.work_name}}" /></a>
+        <p>{{item.work_name}}</p>
+      </div></li>
+      <li id="nextBtn" 
+      ng-class="{disabled: currentPage == pagedItems.length - 1}"><a href="" 
+      ng-click="nextPage()">Next</a>
+      </li>
+    </ul>
+    </div>  <!-- end hpImgNavigation -->
  </div><!-- end ctrlRead -->
+ <!-- end ctrlRead -->
 
-
- 
-<!-- start carousel-->
- 
-<!-- end carousel-->
- 
-
-	<div class="container footer">
-	<div class="row">
-	  <div class="">BOTTOM</div>
-     </div>
+  <div class="container footer">
+	 <div class="row">
+	   <div class="">BOTTOM</div>
+    </div>
   </div><!-- row -->
-  </div><!-- container -->
-
+</div><!-- container page -->
 
     <!-- JavaScript plugins (requires jQuery) -->
     <script src="http://code.jquery.com/jquery.js"></script>

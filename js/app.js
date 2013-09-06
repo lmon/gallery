@@ -7,9 +7,14 @@ angular.module('App', ['$strap.directives', 'App.directives',])
 		//"/victimizer/service/?appid=1&action=getdata" 
 		// 		svcUrl: "/gallery/service/"
 	}
-	$scope.window_thresh = null;
+	//watches windo length so we can modify image reques
+    $scope.window_thresh = null;
+    //how many please
 	$scope.resplength = 8;
-	$scope.hpthumbs = null;
+	//on page var that maps to thumbnail UI
+    $scope.hpthumbs = null;
+    // 
+    $scope.pgOnload = true;
 
 	$scope.getWidth = function() {
         return $(window).width();
@@ -21,7 +26,7 @@ angular.module('App', ['$strap.directives', 'App.directives',])
 	$scope.$watch($scope.getWidth, function(newValue, oldValue) {
 
         oldthresh = $scope.window_thresh;
-
+        // these are mapped to the valees in CSS
         $scope.window_width = newValue;
         if($scope.window_width < 580){
 	        $scope.window_thresh = "s";
@@ -62,10 +67,10 @@ angular.module('App', ['$strap.directives', 'App.directives',])
 		$http({method:'GET', url: $scope.config.svcUrl + '?thresh='+$scope.window_thresh + '&length='+$scope.resplength}).
 			success(function(json) {
 				$scope.onSuccess(json);
-				console.log('Success');
+				console.log('imageLoadInit Success');
 		}).
 		error(function(data, status, headers, config) {
-			console.log('Error');
+			console.log('imageLoadInit Error');
 			console.log('	data: '+data);
 			console.log('	status: '+status);
 			console.log('	config: '+config);
@@ -79,6 +84,7 @@ angular.module('App', ['$strap.directives', 'App.directives',])
  	 	// implement a filter on html page to avoid loading 169 images at once
  	 	$scope.hpthumbs = json.data;
  		console.log("AppCtrl onSuccess: json.data.length "+json.data.length);
+
  	}
 	
 	$scope.init = function () {
@@ -88,26 +94,31 @@ angular.module('App', ['$strap.directives', 'App.directives',])
 	
 // why do i have to do this:   		
 // [ '$scope', '$filter', function($scope, $filter)  doesnt seem right
-//????
+//????or
 //ctrlRead.$inject = ['$scope', '$filter'];
 //??	
 }).controller('ctrlRead', [ '$scope', '$filter', function($scope, $filter) {
+
     console.log('in ctrlRead . '+ $scope.hpthumbs);
-
-    console.log('in preInit . scope is '+ $scope);
     $scope.selected = {"name":"", "work":""};
-
 	$scope.$watch('hpthumbs', function() {
 		if($scope.hpthumbs){
-				    console.log('========= GOT DATA ==========');
+			console.log('========= GOT DATA ==========');
 			$scope.ctrlReadInit();
+
+            if($scope.pgOnload = true){
+                //display initial image
+                $scope.setSrcMain($scope.hpthumbs[0].work_id);
+                $scope.pgOnload = false;
+            } 
 		}	
 	});
 	// sets value of 'selected' an item on the stage
 	$scope.setSrcMain = function ($ind) {
 		// assign sec & alt to #imgtarget
-		$scope.selected = $scope.findObjectByProperty($scope.items, 'id', $ind);
-		console.log("setSrcCalled called: "+$ind);
+		$scope.selected = $scope.findObjectByProperty($scope.items, 'work_id', $ind);
+		//console.log("setSrcCalled : "+$ind);
+        console.log("setSrcCalled url = : "+$scope.selected.file);
 	}
 	// a util to help people like me
 	$scope.findObjectByProperty = function($list, $propname,$propvalue) {	
@@ -124,7 +135,7 @@ angular.module('App', ['$strap.directives', 'App.directives',])
     $scope.reverse = false;
     $scope.filteredItems = [];
     $scope.groupedItems = [];
-    $scope.itemsPerPage = 3;
+    $scope.itemsPerPage = 4;
     $scope.pagedItems = [];
     $scope.currentPage = 0;
     $scope.items = null;

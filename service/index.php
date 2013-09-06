@@ -44,15 +44,15 @@ $start = (isset($_GET['start'])  ? $_GET['start'] : 0 );
 
 
 $results = array( 
-	array("file"=>$urlprefix . "/gallery/art/DSC_0061_1.jpg", 
+	array("work_id"=>"t01","file"=>$urlprefix . "/gallery/art/DSC_0061_1.jpg", 
 		"thumbFile"=>$thumburlprefix . "/gallery/art/DSC_0061_1.jpg", 
 		"work_name"=>"Untitled #2 2013") , 
 	
-	array("file"=>$urlprefix . "/gallery/art/lmonaco_reverse-c_adj_web.jpg", 
+	array("work_id"=>"t02","file"=>$urlprefix . "/gallery/art/lmonaco_reverse-c_adj_web.jpg", 
 		"thumbFile"=>$thumburlprefix . "/gallery/art/lmonaco_reverse-c_adj_web.jpg", 
 		"work_name"=>"Untitled C 2007") , 
 	
-	array("file"=>$urlprefix . "/gallery/art/landscape_imp-03-1.jpg", 
+	array("work_id"=>"t03","file"=>$urlprefix . "/gallery/art/landscape_imp-03-1.jpg", 
 		"thumbFile"=>$thumburlprefix . "/gallery/art/landscape_imp-03-1.jpg", 
 		"work_name"=>"Landscape Impressions #3"),
 	array( "work_id"=>"61","work_name"=>"Valley Approach - Detail","file"=>$urlprefix ."/gallery/art/large/IMG_1188-valley-detail.jpg","dateAdded"=>"2006-07-25 00:00:00","dateCreated"=>"2006-07-25 00:00:00","medium"=>"Ink On Paper","filetype"=>"Tif","filesize"=>"22.8M","dimensions"=>"40 x 60","comments"=>"Part of a group of work which uses  Los Angeles as a starting point","ItemNotes"=>"","thumbFile"=>$thumburlprefix . "/gallery/art/large/IMG_1188-valley-detail-thumb.jpg","isHidden"=>"0","download"=>"/gallery/art/large/IMG_1188-valley-detail.TIF","parent"=>"59","isADefault"=>"1","isAvailable"=>"0","inTheHandsOf"=>"" ),

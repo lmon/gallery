@@ -14,17 +14,20 @@ body{
 }
 /* debugging */
 #devnote{
-position:absolute;
-top:0px;
-left:1px;
-background-color:yellow;
+	position:absolute;
+	top:0px;
+	left:1px;
+	background-color:yellow;
+}
+h1{
+	margin-top: 34px;
 }
 .disabled a, .disabled a:hover{
 	opacity: .3;
 	text-decoration:none;
 }
 .container.page{
-	margin: 5px;
+	margin: 5px 0px 0px 5px;
 	padding: 5px;
 }
 
@@ -33,6 +36,62 @@ background-color:yellow;
 }
 
 /* carousel */
+	#hpImgNavigation{
+		position: fixed;
+		bottom: 26px;
+		padding: 0;
+		margin: 0;
+		height: 90px;
+		overflow:hidden;
+	 	width: 100%;
+	}
+	 #prevBtn, #nextBtn{
+	 	height: 75px;
+	 	width: 50px;
+	 	display: inline-block;
+	 }
+	 #prevBtn a, #nextBtn a{
+	 	background-color: #000;
+	 	color: #EEE; 
+	 	display: block;
+	 	height: 100%;
+	 	width: 100%;
+	 }
+	/* thumbnails */
+	ul.thumbnails{
+		padding: 0;
+		margin: 0;
+		background-color: #cccccc;
+	}
+	ul.thumbnails li.item{
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		height: 80px;
+		overflow: hidden;
+		display: inline-block;
+		width: 20%;
+	}
+	ul.thumbnails li.item img.thumbimg{
+		width: 100%;
+	}
+	ul.thumbnails li.item p{
+		font-size: .8em;
+	}
+	/* centerStage */
+	#centerStage.disabled, ul.thumbnails li.item.disabled{
+		display: none;
+	}
+	#centerStage{
+		width: 400px;
+		margin: 10px 0px 0px 0px;
+		height: 300px;
+	}
+	#centerStage img{
+		width: 100%;
+		height: inherit;
+		margin: 0px;
+	}
 /*
 .container.gallery-carousel{
 	width: 460px;
