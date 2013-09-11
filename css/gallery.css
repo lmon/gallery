@@ -27,7 +27,7 @@ h1{
 	text-decoration:none;
 }
 .container.page{
-	margin: 5px 0px 0px 5px;
+	margin: 5px 0px 0px 0px;
 	padding: 5px;
 }
 
@@ -38,24 +38,26 @@ h1{
 /* carousel */
 	#hpImgNavigation{
 		position: fixed;
-		bottom: 26px;
-		padding: 0;
-		margin: 0;
+		bottom: 20px; /* corresponds with footer */
+		padding:1px 0 0 0;
+		margin: 0 0 0 -5px; /* because its in the page */
 		height: 90px;
 		overflow:hidden;
 	 	width: 100%;
+		background-color: #000;
 	}
 	 #prevBtn, #nextBtn{
-	 	height: 75px;
-	 	width: 50px;
-	 	display: inline-block;
+	 	height: 100%;
+	 	width: 40px;
 	 }
 	 #prevBtn a, #nextBtn a{
-	 	background-color: #000;
-	 	color: #EEE; 
-	 	display: block;
-	 	height: 100%;
-	 	width: 100%;
+		background-color: #000;
+		color: #EEE;
+		display: block;
+		height: 100%;
+		width: 100%;
+		font-size: 2em;
+		padding: 13px 0 0 3px;
 	 }
 	/* thumbnails */
 	ul.thumbnails{
@@ -63,27 +65,42 @@ h1{
 		margin: 0;
 		background-color: #cccccc;
 	}
+	ul.thumbnails li{
+	 	display: block;
+	 	float: left;
+		height: 90px;
+	 	overflow:hidden;
+	}
 	ul.thumbnails li.item{
 		list-style: none;
 		padding: 0;
 		margin: 0;
-		height: 80px;
-		overflow: hidden;
-		display: inline-block;
 		width: 20%;
 	}
 	ul.thumbnails li.item img.thumbimg{
 		width: 100%;
 	}
-	ul.thumbnails li.item p{
+	ul.thumbnails li.item div.thumbnail{
+		height: 87px;
+		overflow: hidden;
+	}
+	ul.thumbnails li.item .thumbnail a{
+		display: block;
+		height: 50px;
+		overflow: hidden;
+	}
+	ul.thumbnails li.item div.thumbnail p{
 		font-size: .8em;
 	}
+
+
 	/* centerStage */
 	#centerStage.disabled, ul.thumbnails li.item.disabled{
 		display: none;
 	}
 	#centerStage{
-		width: 400px;
+		width: 100%;
+		max-width: 580px;/* correspons with threshold */
 		margin: 10px 0px 0px 0px;
 		height: 300px;
 	}
@@ -157,14 +174,20 @@ h1{
 	width:100%;
 	max-width: none;
 	height:25px;
-	background:#000;
+	background:#111;
 	opacity: .9;
 	position: fixed;
-	bottom: 1px;
+	bottom: 0px;
+	margin: 0 0 0 -5px;
+}
+.small{
+	font-size: .7em;
+	color: #555;
+	padding: 4px;
 }
 
 /* image browse nav */
-.browse-nav{
+/*.browse-nav{
 	display: none;
 	opacity: .9;
 	position: fixed;
@@ -179,7 +202,7 @@ h1{
 .browse-nav a.right{
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
-}
+}*/
 
 /* 
 BG IMAGES

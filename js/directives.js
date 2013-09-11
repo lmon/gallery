@@ -12,10 +12,10 @@ angular.module('App.directives', []).
                 // now we can do specific stuff:
                 if(element[0].naturalHeight > element[0].naturalWidth){
                     element.addClass("vertical");
-                	//console.log("is vert "+attrs['src'])
+                	console.log("orientable: is vert "+attrs['src'])
                 }else{
                 	element.addClass("horizontal");
-                	//console.log("isnt")
+                	console.log("orientable: isnt")
                 }
             });
 

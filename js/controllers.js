@@ -1,12 +1,11 @@
-//app.js
-angular.module('App', ['$strap.directives', 'App.directives', , 'App.controllers'])
-.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/news', { controller: 'NewsCtrl'});
-    $routeProvider.otherwise({redirectTo: '/home'});
-  
-  }]).controller('NewsCtrl', function(){
-    console.log('In NewsCtrl');
-  })
+'use strict';
+
+//controllers.js
+angular.module('App.controllers', [])
+.controller('NewsCtrl', function($scope, $http, $filter) {
+	    console.log("NewsCtrl NewsCtrl");
+
+	})  
 .controller('AppCtrl', function($scope, $http, $filter) {
 	$scope.config = {
 		//svcUrl: "http://www.lucasmonaco.com/gallery/service/?length=2"
@@ -16,6 +15,7 @@ angular.module('App', ['$strap.directives', 'App.directives', , 'App.controllers
 	}
 	//watches windo length so we can modify image reques
     $scope.window_thresh = null;
+    $scope.old_thresh = null;
     //how many please
 	$scope.resplength = 8;
 	//on page var that maps to thumbnail UI
@@ -32,7 +32,7 @@ angular.module('App', ['$strap.directives', 'App.directives', , 'App.controllers
    	// bootstrap widths:
 	$scope.$watch($scope.getWidth, function(newValue, oldValue) {
 
-        oldthresh = $scope.window_thresh;
+        $scope.oldthresh = $scope.window_thresh;
         // these are mapped to the valees in CSS
         $scope.window_width = newValue;
         if($scope.window_width < 580){
@@ -52,9 +52,9 @@ angular.module('App', ['$strap.directives', 'App.directives', , 'App.controllers
 			console.log('watch: thresh = '+$scope.window_thresh)
 
 		// prevents the reload to be called on load of the page.
-		}else if(($scope.window_thresh != oldthresh) && (oldthresh != null)){
+		}else if(($scope.window_thresh != $scope.oldthresh) && ($scope.oldthresh != null)){
 	    	console.log('watch: load init. thresh = '+$scope.window_thresh + " & oldthresh="+oldthresh);
-	    	oldthresh = 's';
+	    	$scope.oldthresh = 's';
 		    $scope.imageLoadInit();
 		}
 	});
@@ -93,11 +93,14 @@ angular.module('App', ['$strap.directives', 'App.directives', , 'App.controllers
  		console.log("AppCtrl onSuccess: json.data.length "+json.data.length);
 
  	}
-	
+
+	/* called on load */
 	$scope.init = function () {
    		console.log("AppCtrl init called");
    		$scope.imageLoadInit();
 	};
+
+ 	$scope.init();
 	
 // why do i have to do this:   		
 // [ '$scope', '$filter', function($scope, $filter)  doesnt seem right
@@ -255,5 +258,3 @@ angular.module('App', ['$strap.directives', 'App.directives', , 'App.controllers
             $('th.'+new_sorting_order+' i').removeClass().addClass('icon-chevron-down');
     };
 } ]);
- 
- 
