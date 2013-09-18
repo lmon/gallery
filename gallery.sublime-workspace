@@ -4,6 +4,50 @@
 		"selected_items":
 		[
 			[
+				"fun",
+				"function"
+			],
+			[
+				"News",
+				"NewsCtrl"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"fo",
+				"font"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"i",
+				"inline"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"ma",
+				"margin"
+			],
+			[
+				"App",
+				"AppCtrl"
+			],
+			[
 				"con",
 				"console"
 			]
@@ -12,10 +56,30 @@
 	"buffers":
 	[
 		{
-			"file": "css/gallery.css",
+			"contents": "'use strict';\n\n//controllers.js\nangular.module('App.controllers', [])\n.controller('NewsCtrl', function($scope, $http, $filter) {\n	    console.log(\"NewsCtrl NewsCtrl\");\n});\n",
+			"file": "js/controllers.js",
+			"file_size": 8591,
+			"file_write_time": 1378850186000000,
 			"settings":
 			{
-				"buffer_size": 3627,
+				"buffer_size": 172,
+				"line_ending": "Unix",
+				"name": "//controllers.js"
+			}
+		},
+		{
+			"file": "js/directives.js",
+			"settings":
+			{
+				"buffer_size": 929,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/services.js",
+			"settings":
+			{
+				"buffer_size": 181,
 				"line_ending": "Unix"
 			}
 		},
@@ -23,7 +87,32 @@
 			"file": "js/app.js",
 			"settings":
 			{
-				"buffer_size": 2941,
+				"buffer_size": 8665,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Project Tasks:\n	•	Detailed Technical Assessment of Environments\n	◦	Project code & documentation review\n	◦	Technical Briefing (including Mdlz InfoSys team if necessary)\n	▪	Server and DB profiles / physical architecture overview\n	▪	Sitecore instance - versions and configurations\n	▪	Overview of development process and hand-off from DTAS to Mdlz - and respond\n	◦	DB back-up from Mdlz Sitecore CM environment\n	◦	Latest Zip of code for web app\n	◦	Review & compare SVN code-base for discrepancies\n	•	Back-up existing DTAS stage environment (web app code and DB)\n	•	Configure DTAS stage environment with any SW patches or updates to match Mdlz CM environment\n	•	Compile and deploy updated web app code to DTAS stage\n	•	Restore Mdlz CM databases on DTAS stage\n	•	QA DTAS stage and compare with Mdlz CM environment\n	•	Documentation - TBD.  Examples may include:\n	◦	Staging environment update process and recommendations to keep code and content synced\n	◦	Local dev environment set-up and on-boarding process (for new team members)\n\nEstimate & Resources\n	•	40-52 Total Technology Hours, spread over 2 week project duration\n	◦	CMS/Sitecore Architect (Charlie Bleau): 16-20 hrs\n	◦	.NET Architect (Roumen Stoyanov): 16-20 hrs\n	◦	QA Specialist (TBD off-shore): 8 hrs\n	◦	TM (Lucas Monaco): 4-6 hrs\n\nAssumptions:\n	•	Access to all necessary environments to support migration (ideally, Mdlz CM and SVN)\n	•	Timeline dependent on client response times for required assets, if required",
+			"settings":
+			{
+				"buffer_size": 1465,
+				"line_ending": "Unix",
+				"name": "Project Tasks:"
+			}
+		},
+		{
+			"file": "css/gallery.css",
+			"settings":
+			{
+				"buffer_size": 5147,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "partials/home.html",
+			"settings":
+			{
+				"buffer_size": 233,
 				"line_ending": "Unix"
 			}
 		}
@@ -39,7 +128,7 @@
 				"Snippet: Object Value JS"
 			]
 		],
-		"width": 467.0
+		"width": 392.0
 	},
 	"console":
 	{
@@ -56,14 +145,20 @@
 	},
 	"file_history":
 	[
-		"/Library/WebServer/Documents/gallery/js/app.js",
 		"/Library/WebServer/Documents/gallery/index.html",
+		"/Library/WebServer/Documents/linktester/app/index.html",
+		"/Library/WebServer/Documents/gallery/service/index.php",
+		"/Library/WebServer/Documents/gallery/js/directives.js",
 		"/Users/lmonaco/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Library/WebServer/Documents/gallery/js/ctrlRead.js",
+		"/Users/lmonaco/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Library/WebServer/Documents/gallery/css/gallery.css",
+		"/Library/WebServer/Documents/gallery/js/app.js",
 		"/Library/WebServer/Documents/gallery/gallery"
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -77,6 +172,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"thumbnail",
+			"searchMatch",
+			"changed",
+			")]};",
+			"ctrlRea",
+			"imageLoadInit",
+			"svcUrl",
+			"filter",
+			"selected"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -94,15 +198,129 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "css/gallery.css",
+					"file": "js/controllers.js",
 					"settings":
 					{
-						"buffer_size": 3627,
+						"buffer_size": 172,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								172,
+								172
+							]
+						],
+						"settings":
+						{
+							"auto_name": "//controllers.js",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "js/directives.js",
+					"settings":
+					{
+						"buffer_size": 929,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								765,
+								765
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "js/services.js",
+					"settings":
+					{
+						"buffer_size": 181,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								163,
+								170
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 3,
+					"file": "js/app.js",
+					"settings":
+					{
+						"buffer_size": 8665,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								737,
+								737
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"settings":
+					{
+						"buffer_size": 1465,
 						"regions":
 						{
 						},
@@ -110,7 +328,34 @@
 						[
 							[
 								0,
-								0
+								1465
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Project Tasks:",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "css/gallery.css",
+					"settings":
+					{
+						"buffer_size": 5147,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3018,
+								3018
 							]
 						],
 						"settings":
@@ -119,36 +364,30 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1.0,
+						"translation.y": 3131.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
+				},
 				{
-					"buffer": 1,
-					"file": "js/app.js",
+					"buffer": 6,
+					"file": "partials/home.html",
 					"settings":
 					{
-						"buffer_size": 2941,
+						"buffer_size": 233,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								233,
+								233
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/HTML/HTML.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -187,7 +426,7 @@
 		"cols":
 		[
 			0.0,
-			0.5,
+			0.510382174393,
 			1.0
 		],
 		"rows":
