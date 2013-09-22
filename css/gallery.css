@@ -5,8 +5,6 @@ move these to FE / JS
 */
 body{
 	background-color:#fff;
-	/*background: no-repeat center center fixed url('http://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Ash_Tree_-_geograph.org.uk_-_590710.jpg/220px-Ash_Tree_-_geograph.org.uk_-_590710.jpg');
-	*/
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -48,7 +46,7 @@ h1{
 	}
 	 #prevBtn, #nextBtn{
 	 	height: 100%;
-	 	width: 40px;
+	 	width: 10%;
 	 }
 	 #prevBtn a, #nextBtn a{
 		background-color: #000;
@@ -63,7 +61,6 @@ h1{
 	ul.thumbnails{
 		padding: 0;
 		margin: 0;
-		background-color: #cccccc;
 	}
 	ul.thumbnails li{
 	 	display: block;
@@ -93,7 +90,6 @@ h1{
 		font-size: .8em;
 	}
 
-
 	/* centerStage */
 	#centerStage.disabled, ul.thumbnails li.item.disabled{
 		display: none;
@@ -109,65 +105,7 @@ h1{
 		height: inherit;
 		margin: 0px;
 	}
-/*
-.container.gallery-carousel{
-	width: 460px;
-	background: #000000;
-}
-
-.carousel.hp{
-	background: #999;
-	height: 300px;
-	overflow: hidden;
-}
-.carousel-inner {
-	background: #FF0;
-	height: inherit;
-}
-.carousel-inner>item, .carousel-inner>.active {
-	height: inherit; 
-}
-
-.carousel-inner>.item>img.horizontal{
-	display: block; 
-	width: 100%;
-	margin: auto;
-
-} 
-
-.carousel-inner>.item>img.vertical{
-	display: block; 
-	height: 100%;
-	margin: auto;
-} 
  
-.carousel-indicators.thumb{
-	border: 1px #000 solid; 
-	width: 50%; 
-	margin: 0 auto;
-	left: 25%;
-	bottom: 14%;
-}
-
-.carousel-indicators.thumb li img{
-	width: 100%;
-	margin: auto;
-}
-
-.carousel-indicators.thumb li{
-	opacity: 1;
-	width: 40px;
-	height: 40px;
-	text-indent: 0;
-	overflow: hidden;
-	border:1px #CCC solid;
-}
-.carousel-indicators.thumb li.active{
-	border:1px #111 solid;
-} */
-
-
-
 
 
 .footer{
@@ -186,28 +124,6 @@ h1{
 	padding: 4px;
 }
 
-/* image browse nav */
-/*.browse-nav{
-	display: none;
-	opacity: .9;
-	position: fixed;
-	bottom: 10px;
-}
-
-.browse-nav a.left{
-	border-top-left-radius: 10px;
-	border-bottom-left-radius: 10px;
-}
-
-.browse-nav a.right{
-	border-top-right-radius: 10px;
-	border-bottom-right-radius: 10px;
-}*/
-
-/* 
-BG IMAGES
-move these to FE / JS
-*/
 @media (min-width: 580px) {
   body {
 	/*background:  no-repeat center center fixed url('http://files.abovetopsecret.com/files/img/rq518f9998.jpg');
@@ -217,33 +133,36 @@ move these to FE / JS
 	-o-background-size: cover;
 	background-size: cover;
   }
-  .hp-image{
-	background: #FF0000;
-	height: 100px;
-	width 80%;
-  }
 
-/***** Carousel stuff 
-	.carousel-inner {
-		background: #FF0000;
+/***** Carousel stuff overwritten *****/
+/* carousel */
+	#hpImgNavigation{
+		 text-align: center;
+		 width:100%;
 	}
-	.carousel-indicators.thumb li{
-		width: 50px;
-		height: 50px;
+	#prevBtn, #nextBtn{ }
+	#prevBtn a, #nextBtn a{ 	 }
+	/* thumbnails */
+	ul.thumbnails{ 
+		display: inline-block;
+		margin: 0 auto;
 	}
-	.container.gallery-carousel{
-		width: 580px;
-	}
-
-	.carousel.hp{
-		height: 500px;
-	}
-	
-	.carousel-inner>.item>img.vertical{
-		margin: auto;
-	} ****/
+	ul.thumbnails li{ 	 	}
+	ul.thumbnails li.item{ 	}
+	ul.thumbnails li.item img.thumbimg{ 	}
+	ul.thumbnails li.item div.thumbnail{ 	}
+	ul.thumbnails li.item .thumbnail a{ 	}
+	ul.thumbnails li.item div.thumbnail p{ }
 
 
+	/* centerStage */
+	#centerStage.disabled, ul.thumbnails li.item.disabled{ 	}
+	#centerStage{
+		 margin: 0 auto;
+	}
+	#centerStage img{ 
+		max-width: 800px;/* correspons with threshold */
+	}
 }
 
 @media (min-width: 800px) {
@@ -259,26 +178,33 @@ move these to FE / JS
 	height: 100px;
 	width 80%;
   }
-  
-/***** Carousel stuff  
-	.carousel-inner {
-		background: #ccccFF;
+  /* carousel */
+	#hpImgNavigation{
+	background-color:#00FF00;
+		 text-align: center;
+		 width:100%;
 	}
+	#prevBtn, #nextBtn{ }
+	#prevBtn a, #nextBtn a{ 	 }
+	/* thumbnails */
+	ul.thumbnails{ 
+		display: inline-block;
+		margin: 0 auto;
+	}
+	ul.thumbnails li{ 	 	}
+	ul.thumbnails li.item{ 	}
+	ul.thumbnails li.item img.thumbimg{ 	}
+	ul.thumbnails li.item div.thumbnail{ 	}
+	ul.thumbnails li.item .thumbnail a{ 	}
+	ul.thumbnails li.item div.thumbnail p{ }
 
-	.carousel-indicators.thumb li{
-		width: 70px;
-		height: 70px;
-	}
-	.container.gallery-carousel{
-		width: 580px;
-	}
-	.carousel.hp{
-		height: 660px;
-	}	
-	.carousel-inner>.item>img.vertical{
-		margin: auto;
-	} ****/
 
+	/* centerStage */
+	#centerStage.disabled, ul.thumbnails li.item.disabled{ 	}
+	#centerStage{
+		 margin: 0 auto;
+	}
+	#centerStage img{ 	}
 
 }
 
@@ -291,22 +217,50 @@ move these to FE / JS
 	-o-background-size: cover;
 	background-size: cover;
   }
-/***** Carousel stuff  
-	.carousel-inner {
+
+/* carousel */
+	#hpImgNavigation{
+		 background-color: #0000FF;
+	}
+	 #prevBtn, #nextBtn{
+	 	 
+	 }
+	 #prevBtn a, #nextBtn a{
+		 
+	 }
+	/* thumbnails */
+	ul.thumbnails{
+		 
+	}
+	ul.thumbnails li{
+	 	 
+	}
+	ul.thumbnails li.item{
+		 
+	}
+	ul.thumbnails li.item img.thumbimg{
+		 
+	}
+	ul.thumbnails li.item div.thumbnail{
+		 
+	}
+	ul.thumbnails li.item .thumbnail a{
+		 
+	}
+	ul.thumbnails li.item div.thumbnail p{
+		 
 	}
 
-	.carousel-indicators.thumb li{
-		width: 120px;
-		height: 120px;
+
+	/* centerStage */
+	#centerStage.disabled, ul.thumbnails li.item.disabled{
+		 
 	}
-	.container.gallery-carousel{
-		width: 780px;
+	#centerStage{
+		 
 	}
-	.carousel.hp{
-		height: 768px;
+	#centerStage img{
+		 
 	}
-	.carousel-inner>.item>img.vertical{
-		margin: auto;
-	} ****/
 
 }

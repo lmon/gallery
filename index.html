@@ -49,7 +49,7 @@
       ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder"><div class="thumbnail">
         <a href ng-click="setSrcMain(item.work_id)"><img 
         class="thumbimg"
-        src="{{item.file}}" 
+        src="{{item.thumbFile}}" 
         alt="{{item.work_name}}" /></a>
         <p>{{item.work_name}}</p>
       </div></li>

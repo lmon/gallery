@@ -10,14 +10,26 @@ angular.module('App', ['$strap.directives', 'App.directives', , 'App.controllers
 .controller('AppCtrl', function($scope, $http, $filter) {
 	$scope.config = {
 		//svcUrl: "http://www.lucasmonaco.com/gallery/service/?length=2"
-		svcUrl: "/gallery/service/"
-		//"/victimizer/service/?appid=1&action=getdata" 
-		// 		svcUrl: "/gallery/service/"
+		svcUrl: "/gallery/service/",
+		imageDimensions: {
+			"main":{
+				"s": [50,500],
+				"m": [60,620],
+				"l": [70,720],
+				"xl":[80,810]
+				},
+			"thumb":{
+				"s": [20,55],
+				"m": [30,85],
+				"l": [40,140],
+				"xl":[40,160]
+				}
+		}
 	}
 	//watches windo length so we can modify image reques
     $scope.window_thresh = null;
     //how many please
-	$scope.resplength = 8;
+	$scope.resplength = 100;
 	//on page var that maps to thumbnail UI
     $scope.hpthumbs = null;
     // 
@@ -88,8 +100,9 @@ angular.module('App', ['$strap.directives', 'App.directives', , 'App.controllers
   	}
   	
   	$scope.onSuccess = function(json){
- 	 	// implement a filter on html page to avoid loading 169 images at once
- 	 	$scope.hpthumbs = json.data;
+ 	 	// map all the thumbs found to our on page display ( paginated with ctrlRead controller )
+ 	 	
+ 	 	$scope.hpthumbs = $scope.setThumbImageUrls(json.data);
  		console.log("AppCtrl onSuccess: json.data.length "+json.data.length);
 
  	}
@@ -98,6 +111,16 @@ angular.module('App', ['$strap.directives', 'App.directives', , 'App.controllers
    		console.log("AppCtrl init called");
    		$scope.imageLoadInit();
 	};
+	
+	$scope.setThumbImageUrls = function($data){
+
+		for(var i=0;i<$data.length;i++) {
+	 		$data[i].thumbFile = 	"/show_image.php?perc="+$scope.config.imageDimensions.thumb[$scope.window_thresh][0]+"&max="+$scope.config.imageDimensions.thumb[$scope.window_thresh][1]+"&img="+$data[i].thumbFile;
+	 	}
+		
+		return $data;
+	} 
+	 
 	
 // why do i have to do this:   		
 // [ '$scope', '$filter', function($scope, $filter)  doesnt seem right
@@ -115,7 +138,7 @@ angular.module('App', ['$strap.directives', 'App.directives', , 'App.controllers
 
             if($scope.pgOnload = true){
                 //display initial image
-                $scope.setSrcMain($scope.hpthumbs[0].work_id);
+                $scope.setSrcMain($scope.hpthumbs[Math.floor((Math.random()*$scope.hpthumbs.length))].work_id);
                 $scope.pgOnload = false;
             } 
 		}	
@@ -123,21 +146,39 @@ angular.module('App', ['$strap.directives', 'App.directives', , 'App.controllers
 	// sets value of 'selected' an item on the stage
 	$scope.setSrcMain = function ($ind) {
 		// assign sec & alt to #imgtarget
-		$scope.selected = $scope.findObjectByProperty($scope.items, 'work_id', $ind);
+		$scope.selected = $scope.getAppropriateImgUrl( $scope.findObjectByProperty($scope.items, 'work_id', $ind), "main" );
 		//console.log("setSrcCalled : "+$ind);
-        console.log("setSrcCalled url = : "+$scope.selected.file);
+        //console.log("setSrcCalled url = : "+$scope.selected.file);
 	}
+	
+	$scope.getAppropriateImgUrl = function($myobject, $usetype){
+		//http://www.lucasmonaco.com/show_image.php?perc=20&max=700&img=/gallery/art/fatburger_2007-09-29_5Detail.jpg
+		if($usetype == "main"){
+			//console.log("/show_image.php?perc="+$scope.config.imageDimensions.main[$scope.window_thresh][0]+"&max="+$scope.config.imageDimensions.main[$scope.window_thresh][1]+"&img="+$myobject.file)
+			
+			$myobject.file = 	"/show_image.php?perc="+$scope.config.imageDimensions.main[$scope.window_thresh][0]+"&max="+$scope.config.imageDimensions.main[$scope.window_thresh][1]+"&img="+$myobject.file;
+
+		}else{
+			$myobject.file = 	"/show_image.php?perc="+$scope.config.imageDimensions.thumb[$scope.window_thresh][0]+"&max="+$scope.config.imageDimensions.thumb[$scope.window_thresh][1]+"&img="+$myobject.file;
+		
+		}
+		return $myobject;
+	}
+	
 	// a util to help people like me
 	$scope.findObjectByProperty = function($list, $propname,$propvalue) {	
-		for(var i=0;i<$list.length;i++) {
+	 	for(var i=0;i<$list.length;i++) {
 		  if($list[i][$propname] == $propvalue ){
+			//console.log("IN findObjectByProperty: FOUND  "+  $propname, $propvalue, $list[i]);
 			return $list[i];
 			}  
 	 	}
+        console.log("findObjectByProperty: nothing found for "+  $propname, $propvalue);
+	 	
 	 	return null;
 	}
 	
-	// init
+	// init pagnation tool
 	$scope.sortingOrder = sortingOrder;
     $scope.reverse = false;
     $scope.filteredItems = [];
@@ -150,18 +191,6 @@ angular.module('App', ['$strap.directives', 'App.directives', , 'App.controllers
     $scope.ctrlReadInit = function( ){
     	$scope.items = $scope.hpthumbs;
     	console.log(' in ctrlRead . thumbs is '+ $scope.hpthumbs);
- 
-		/*  $scope.items = [
-		        {"id":"1","name":"anne ","field4":"http://www.dining.csus.edu/wp-content/uploads/2012/08/bkLogo.png"}, 
-		        {"id":"2","name":"jack ", "field4":"http://blog.seattlepi.com/thebigblog/files/2011/08/bkkingmascott.png"}, 
-		        {"id":"3","name":"mark ", "field4":"http://www.blogpakistan.com/wp-content/uploads/2013/07/burger-king-1.jpg"}, 
-		        {"id":"4","name":"rob ", "field4":"http://www.midwestern-electric.com/_images//special/bk_sign.jpg"}, 
-		        {"id":"5","name":"robin ", "field4":"http://www.openminds.com/images/BurgerKing-Have-It-Your-Way.gif"}, 
-		        {"id":"6","name":"jacynth ", "field4":"http://assets.bizjournals.com/denver/BurgerKingKingCar*304.jpg?v=1"}, 
-		        {"id":"7","name":"lily ", "field4":"http://www.garyssigns.com/wp-content/uploads/2010/09/Burger-King-I5-pole-sign-combined-300x200.jpg"}, 
-		        {"id":"8","name":"nina ", "field4":"http://cdn5.xombit.com/wp-content/blogs.dir/19/files/2012/06/burger-king-bacon-sundae.jpg"}, 
-		        {"id":"9","name":"fred ", "field4":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/157907_185953438108290_734169016_q.jpg"}, 
-		   ]; */
 	
     	 $scope.search();
     }
