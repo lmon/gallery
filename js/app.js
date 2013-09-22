@@ -136,7 +136,7 @@ angular.module('App', ['$strap.directives', 'App.directives', , 'App.controllers
 			console.log('========= GOT DATA ==========');
 			$scope.ctrlReadInit();
 
-            if($scope.pgOnload = true){
+            if($scope.pgOnload == true){
                 //display initial image
                 $scope.setSrcMain($scope.hpthumbs[Math.floor((Math.random()*$scope.hpthumbs.length))].work_id);
                 $scope.pgOnload = false;

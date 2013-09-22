@@ -1,7 +1,7 @@
 //README
 
 Home
-	- random image[0], fullscreen[X]
+	- random image[X], fullscreen[X]
 	- prev, next buttons at bottom [X]
 	- swipe left right
 	- menu icon top left [X]
@@ -19,9 +19,9 @@ Menu
 			menu items: filtered image lists, about 
 		with image browser
 			swipe (mob) carousel (dt)  	[X]
-			click->expand				[0]
-			lazy load					[0]
-			pagination					[0]
+			click->expand				[X]
+			lazy load					[X]
+			pagination					[X]
 		with lg bg image     			[X]
 		Bootstrap for Responsive 		[X]
 			main and thumbs resize, then reload on resize of viewport [X]
@@ -32,12 +32,12 @@ Menu
 
 	Phase 2
 		Above, plus 
-			JSON Svc
+			JSON Svc	[X]
 			Rails BE
 			use JSON for 
-				image data
+				image data    [X]
 				navigation data
-				page content (about)
+				page content (about, etc)
 				
 	Phase 3
 		Above, plus Node for backend
